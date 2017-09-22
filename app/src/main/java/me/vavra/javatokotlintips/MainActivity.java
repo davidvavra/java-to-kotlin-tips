@@ -1,5 +1,6 @@
 package me.vavra.javatokotlintips;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,12 +12,15 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Model mModel;
     private TextView vName;
     private LinearLayout vTitles;
     private View vLogo;
-    private View vTwitter;
-    private View vMedium;
+    private TextView vTwitter;
+    private TextView vMedium;
+    private TextView vHelloText;
+
+    private Model mModel;
+    private String mHelloText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,15 +29,23 @@ public class MainActivity extends AppCompatActivity {
         vName = (TextView) findViewById(R.id.vName);
         vTitles = (LinearLayout) findViewById(R.id.vTitles);
         vLogo = findViewById(R.id.vLogo);
-        vTwitter = findViewById(R.id.vTwitter);
-        vMedium = findViewById(R.id.vMedium);
+        vTwitter = (TextView) findViewById(R.id.vTwitter);
+        vMedium = (TextView) findViewById(R.id.vMedium);
+        vHelloText = (TextView) findViewById(R.id.vHelloText);
+
         findViewById(R.id.vFab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showData();
+                mHelloText = "Hello DevFest Siberia!";
+                updateHelloText();
+                if (mHelloText.length() > 2) {
+                    vHelloText.setTextColor(Color.BLUE);
+                }
             }
         });
         mModel = loadData();
+        updateHelloText();
     }
 
     private Model loadData() {
@@ -42,19 +54,35 @@ public class MainActivity extends AppCompatActivity {
                 "Android lead of Settle Up",
                 "Google Developer Expert for Android",
                 "Organizer of GDG Prague and DevFest Prague"
-        )));
+        )), "twitter.com/vavradav", "medium.com/@david.vavra");
     }
 
     private void showData() {
         vName.setText(mModel.getName());
-        vTitles.removeAllViews();
-        for (String title : mModel.getTitles()) {
-            TextView textView = new TextView(this);
-            textView.setText(title);
-            vTitles.addView(textView);
+        if (mModel.getTitles() != null) {
+            vTitles.removeAllViews();
+            for (String title : mModel.getTitles()) {
+                TextView textView = new TextView(this);
+                textView.setText(title);
+                vTitles.addView(textView);
+            }
         }
         vLogo.setVisibility(View.VISIBLE);
-        vTwitter.setVisibility(View.VISIBLE);
-        vMedium.setVisibility(View.VISIBLE);
+        if (mModel.getTwitter() != null && mModel.getMedium() != null) {
+            vTwitter.setText(mModel.getTwitter());
+            vMedium.setText(mModel.getMedium());
+        }
+    }
+
+    private void updateHelloText() {
+        vHelloText.setText(getHelloText());
+    }
+
+    private String getHelloText() {
+        if (mHelloText == null) {
+            return "Push the button";
+        } else {
+            return mHelloText;
+        }
     }
 }
