@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView vHelloText;
 
     private Model mModel;
-    private String mHelloText;
+    private String mGitHubUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,19 +33,19 @@ public class MainActivity extends AppCompatActivity {
         vMedium = (TextView) findViewById(R.id.vMedium);
         vHelloText = (TextView) findViewById(R.id.vHelloText);
 
+        mModel = loadData();
+        updateBottomText();
         findViewById(R.id.vFab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showData();
-                mHelloText = "Hello DevFest Siberia!";
-                updateHelloText();
-                if (mHelloText.length() > 2) {
+                mGitHubUrl = "github.com/davidvavra/java-to-kotlin-tips";
+                updateBottomText();
+                if (mGitHubUrl.length() > 2) {
                     vHelloText.setTextColor(Color.BLUE);
                 }
             }
         });
-        mModel = loadData();
-        updateHelloText();
     }
 
     private Model loadData() {
@@ -74,15 +74,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void updateHelloText() {
-        vHelloText.setText(getHelloText());
+    private void updateBottomText() {
+        vHelloText.setText(getBottomText());
     }
 
-    private String getHelloText() {
-        if (mHelloText == null) {
+    private String getBottomText() {
+        if (mGitHubUrl == null) {
             return "Push the button";
         } else {
-            return mHelloText;
+            return mGitHubUrl;
         }
     }
 }
