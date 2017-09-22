@@ -75,14 +75,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateBottomText() {
-        vHelloText.setText(getBottomText());
-    }
-
-    private String getBottomText() {
         if (mGitHubUrl == null) {
-            return "Push the button";
+            vHelloText.setText("Push the button");
         } else {
-            return mGitHubUrl;
+            vHelloText.setText(mGitHubUrl);
         }
     }
 }
