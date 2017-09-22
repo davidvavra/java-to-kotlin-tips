@@ -69,8 +69,8 @@ public class MainActivity extends AppCompatActivity {
         }
         vLogo.setVisibility(View.VISIBLE);
         if (mModel.getTwitter() != null && mModel.getMedium() != null) {
-            vTwitter.setText(mModel.getTwitter());
-            vMedium.setText(mModel.getMedium());
+            vTwitter.setText(mModel.getTwitter().toLowerCase());
+            vMedium.setText(mModel.getMedium().toLowerCase());
         }
     }
 
