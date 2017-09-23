@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private View vLogo;
     private TextView vTwitter;
     private TextView vMedium;
-    private TextView vHelloText;
+    private TextView vBottomText;
 
     private Model mModel;
     private String mGitHubUrl;
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         vLogo = findViewById(R.id.vLogo);
         vTwitter = (TextView) findViewById(R.id.vTwitter);
         vMedium = (TextView) findViewById(R.id.vMedium);
-        vHelloText = (TextView) findViewById(R.id.vBottomText);
+        vBottomText = (TextView) findViewById(R.id.vBottomText);
 
         mModel = loadData();
         updateBottomText();
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 mGitHubUrl = "github.com/davidvavra/java-to-kotlin-tips";
                 updateBottomText();
                 if (mGitHubUrl.length() > 2) {
-                    vHelloText.setTextColor(Color.BLUE);
+                    vBottomText.setTextColor(Color.BLUE);
                 }
             }
         });
@@ -76,9 +76,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateBottomText() {
         if (mGitHubUrl == null) {
-            vHelloText.setText("Push the button");
+            vBottomText.setText("Push the button");
         } else {
-            vHelloText.setText(mGitHubUrl);
+            vBottomText.setText(mGitHubUrl);
         }
     }
 }
