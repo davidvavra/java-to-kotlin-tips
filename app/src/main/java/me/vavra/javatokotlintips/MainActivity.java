@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         vLogo = findViewById(R.id.vLogo);
         vTwitter = (TextView) findViewById(R.id.vTwitter);
         vMedium = (TextView) findViewById(R.id.vMedium);
-        vHelloText = (TextView) findViewById(R.id.vHelloText);
+        vHelloText = (TextView) findViewById(R.id.vBottomText);
 
         mModel = loadData();
         updateBottomText();
