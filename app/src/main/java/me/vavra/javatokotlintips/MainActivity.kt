@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
             mGitHubUrl = "github.com/davidvavra/java-to-kotlin-tips"
             updateBottomText()
             if (checkNotNull(mGitHubUrl, {"Github URL is empty"}).length > 2) {
-                vHelloText.setTextColor(Color.BLUE)
+                vBottomText.setTextColor(Color.BLUE)
             }
             info("Button pressed")
             alert("Good?") {
@@ -66,6 +66,6 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
     }
 
     private fun updateBottomText() {
-        vHelloText.text = mGitHubUrl ?: "Push the button"
+        vBottomText.text = mGitHubUrl ?: "Push the button"
     }
 }
