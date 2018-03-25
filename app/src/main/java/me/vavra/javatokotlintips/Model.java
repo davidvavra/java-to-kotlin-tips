@@ -8,26 +8,26 @@ class Model {
     private String twitter;
     private String medium;
 
-    public Model(String name, List<String> titles, String twitter, String medium) {
+    Model(String name, List<String> titles, String twitter, String medium) {
         this.name = name;
         this.titles = titles;
         this.twitter = twitter;
         this.medium = medium;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public List<String> getTitles() {
+    List<String> getTitles() {
         return titles;
     }
 
-    public String getTwitter() {
+    String getTwitter() {
         return twitter;
     }
 
-    public String getMedium() {
+    String getMedium() {
         return medium;
     }
 

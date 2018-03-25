@@ -26,12 +26,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        vName = (TextView) findViewById(R.id.vName);
-        vTitles = (LinearLayout) findViewById(R.id.vTitles);
+        vName = findViewById(R.id.vName);
+        vTitles = findViewById(R.id.vTitles);
         vLogo = findViewById(R.id.vLogo);
-        vTwitter = (TextView) findViewById(R.id.vTwitter);
-        vMedium = (TextView) findViewById(R.id.vMedium);
-        vBottomText = (TextView) findViewById(R.id.vBottomText);
+        vTwitter = findViewById(R.id.vTwitter);
+        vMedium = findViewById(R.id.vMedium);
+        vBottomText = findViewById(R.id.vBottomText);
 
         mModel = loadData();
         updateBottomText();
