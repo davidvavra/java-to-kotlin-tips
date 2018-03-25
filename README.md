@@ -1,5 +1,5 @@
 # java-to-kotlin-tips
-Android app which shows tips &amp; tricks how to convert Java to Kotlin. From a talk at DevFest Siberia 2017. If you follow the instructions you can use it as a codelab. See the correct solution in the 'solution' branch.
+Android app which shows tips &amp; tricks how to convert Java to Kotlin. From a talk at DevFest Siberia 2017 & Droidcon Vietnam 2018. If you follow the instructions you can use it as a codelab. See the correct solution in the 'solution' branch.
 
 Inspiration for this talk was from [this blogpost](https://android.jlelse.eu/how-to-remove-all-from-your-kotlin-code-87dc2c9767fb).
 
